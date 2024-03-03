@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import { createContext } from 'react';
 import './App.css';
+import WrapperA from './component/wrapperA';
+
+export const GlobalContext = createContext();
 
 function App() {
+  const localObj = {fruit:"mango"}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalContext.Provider value = {localObj}>
+      <WrapperA />
+      </GlobalContext.Provider>
+      
     </div>
   );
 }
